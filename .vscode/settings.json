@@ -5,6 +5,7 @@
         "Eliah",
         "Gradio",
         "huggingface",
+        "ipykernel",
         "ipynb",
         "ipywidgets",
         "Kagan",
