@@ -9,8 +9,15 @@ jobs:
     steps:
       - name: Check out source repository
         uses: actions/checkout@v3
+
+      - name: Install pipenv
+        run: pip install pipenv
+
+      - name: Generate requirements.txt
+        run: pipenv requirements >requirements.txt
+
       - name: mypy Typecheck
         uses: jpetrucciani/mypy-check@master
         with:
           python_version: "3.11"
-          requirements: "huggingface-hub"
+          requirements_file: "requirements.txt"
