@@ -1,8 +1,15 @@
 {
     "cSpell.words": [
         "bigscience",
+        "conda",
+        "Eliah",
+        "Gradio",
         "huggingface",
-        "ipywidgets"
+        "ipynb",
+        "ipywidgets",
+        "Kagan",
+        "spacefaring",
+        "traceback"
     ],
     "notebook.output.textLineLimit": 1000
 }
