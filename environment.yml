@@ -8,3 +8,8 @@ dependencies:
   - huggingface_hub
   - ipykernel
   - ipywidgets
+
+  # Development dependencies.
+  - flake8
+  - mypy
+  - pyright

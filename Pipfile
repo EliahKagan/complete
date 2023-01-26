@@ -9,6 +9,9 @@ ipykernel = "*"
 ipywidgets = "*"
 
 [dev-packages]
+flake8 = "*"
+mypy = "*"
+pyright = "*"
 
 [requires]
 python_version = "3.11"

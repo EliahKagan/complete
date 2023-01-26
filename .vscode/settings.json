@@ -9,6 +9,8 @@
         "ipynb",
         "ipywidgets",
         "Kagan",
+        "mypy",
+        "pyright",
         "spacefaring",
         "traceback"
     ],
