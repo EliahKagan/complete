@@ -3,5 +3,6 @@
         "bigscience",
         "huggingface",
         "ipywidgets"
-    ]
+    ],
+    "notebook.output.textLineLimit": 1000
 }
