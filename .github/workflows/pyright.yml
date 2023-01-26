@@ -1,0 +1,19 @@
+name: pyright Typecheck
+
+on: [push, pull_request]
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    name: Typecheck
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.11
+      - name: Install libraries to inspect
+        run: pip install huggingface-hub
+      - name: pyright Typecheck
+        uses: jakebailey/pyright-action@v1
