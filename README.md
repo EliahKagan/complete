@@ -2,14 +2,15 @@
 
 # complete - Text generation with BLOOM in Jupyter notebooks
 
-This repository provides a `Completer` class for helping with BLOOM completions
-from Python. It is specifically oriented toward beng used from a Jupyter
-notebook in story writing (fiction generation), though it doesn't have to be
-used that way.
+This repository provides a `Completer` class for helping with
+[BLOOM](https://huggingface.co/bigscience/bloom) completions from Python. It is
+specifically oriented toward beng used from a
+[Jupyter](https://docs.jupyter.org/en/latest/) notebook in story writing
+(fiction generation), though it doesn't have to be used that way.
 
 ## License
 
-[0BSD](https://spdx.org/licenses/0BSD.html). See [**`LICENSE`**]().
+[0BSD](https://spdx.org/licenses/0BSD.html). See [**`LICENSE`**](LICENSE).
 
 ## Why?
 
@@ -33,25 +34,38 @@ more specific application.
 
 ### Dependencies
 
-You can install dependencies with `conda`:
+After cloning this repository and `cd`ing to the directory, you can install
+dependencies with
+[`conda`](https://en.wikipedia.org/wiki/Conda_(package_manager)):
 
 ```sh
 conda env create
 conda activate complete
 ```
 
-Then open `complete.ipynb` in VS Code, JupyterLab, or whatever else you prefer
-for interacting with Jupyter notebooks. Make sure to activate the `complete`
-environment in that application, too.
+Or, if you prefer, with [`pipenv`](https://pipenv.pypa.io/en/latest/):
+
+```sh
+pipenv install
+pipenv shell
+```
+
+Then open [`complete.ipynb`](complete.ipynb) in [VS
+Code](https://code.visualstudio.com/),
+[JupyterLab](https://jupyterlab.readthedocs.io/en/stable/), or whatever else
+you prefer for interacting with Jupyter notebooks. Make sure to activate the
+`complete` environment in that application, too, if applicable. (In particular,
+you must select it in VS Code.)
 
 ### API Key
 
-To use BLOOM, you'll need a [HuggingFace](https://huggingface.co/) account. The
-`Completer` class expects to read a [HuggingFace
-token](https://huggingface.co/docs/hub/security-tokens) from a file called
-`.hf_token` in the current directory. (A HuggingFace token is an API key and
-you should make sure *not* to commit it to source control. The `.gitignore`
-file in this repository lists `.hf_token`, to help avoid that.)
+For this software to use BLOOM, you'll need a
+[HuggingFace](https://huggingface.co/) account. The `Completer` class expects
+to read a [HuggingFace token](https://huggingface.co/docs/hub/security-tokens)
+from a file called `.hf_token` in the current directory. (A HuggingFace token
+is an API key and you should make sure *not* to commit it to source control.
+The `.gitignore` file in this repository lists `.hf_token`, to help avoid
+that.)
 
 ## Usage
 
@@ -77,7 +91,9 @@ prompt text.
 
 ### Using the `Completer` to complete text
 
-Then call the `Completer` instance to retrieve a completion from the BLOOM model through the HuggingFace inference API and print it, formatted for readability:
+Then call the `Completer` instance to retrieve a completion from the BLOOM
+model through the HuggingFace inference API and print it, formatted for
+readability:
 
 ```python
 bloom()
@@ -87,7 +103,10 @@ All text is displayed, not just new text. **To ask for further completion, just
 execute that cell again.** This replaces the old completion with the new one.
 You can do this a number of times (until you exceed BLOOM's token limit).
 
-If there is an error, you'll see the message from the HuggingFace API in the exception traceback. It is usually clear. If you want to print the accumulated text so far--for example, if you no longer see it because the last call gave an error--then simply print the `Completer` object rather than calling it:
+If there is an error, you'll see the message from the HuggingFace API in the
+exception traceback. It is usually clear. If you want to print the accumulated
+text so far--for example, if you no longer see it because the last call gave an
+error--then simply print the `Completer` object rather than calling it:
 
 ```python
 print(bloom)
@@ -98,4 +117,4 @@ print(bloom)
 Separate `Completer`s maintain separate state, so you can work on more than one
 story (or other text) at the same time in the same notebook.
 
-**See `complete.ipynb` for examples.**
+**See [`complete.ipynb`](complete.ipynb) for examples.**
