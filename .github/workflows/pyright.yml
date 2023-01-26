@@ -14,6 +14,6 @@ jobs:
         with:
           python-version: 3.11
       - name: Install libraries to inspect
-        runs: pip install huggingface-hub
+        run: pip install huggingface-hub
       - name: pyright Typecheck
         uses: jakebailey/pyright-action@v1
