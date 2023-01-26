@@ -13,3 +13,4 @@ jobs:
         uses: jpetrucciani/mypy-check@master
         with:
           python_version: "3.11"
+          requirements: "huggingface-hub"
