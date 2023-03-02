@@ -132,7 +132,7 @@ class Completer:
     def _set_defaults(self) -> None:
         self.do_sample = True
         self.max_new_tokens = 250
-        self.seed = Supplier(random.random)
+        self.seed = Supplier(functools.partial(random.randrange, 2**64))
         self.temperature = 0.75
 
     def _build_params(self) -> dict[str, Any]:
