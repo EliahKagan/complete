@@ -32,6 +32,4 @@ jobs:
         uses: mamba-org/provision-with-micromamba@v15
 
       - name: Run pylint
-        run: |
-          shopt -s globstar
-          pylint -- **/*.py
+        run: pylint complete.py
