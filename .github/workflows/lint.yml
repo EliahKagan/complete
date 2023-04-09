@@ -31,9 +31,6 @@ jobs:
       - name: Install Conda environment from environment.yml
         uses: mamba-org/provision-with-micromamba@v15
 
-      - name: Make editable install
-        run: pip install -e .
-
       - name: Run pylint
         run: |
           shopt -s globstar
