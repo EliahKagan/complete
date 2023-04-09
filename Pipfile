@@ -11,6 +11,7 @@ ipywidgets = "*"
 [dev-packages]
 flake8 = "*"
 mypy = "*"
+pylint = "*"
 pyright = "*"
 
 [requires]

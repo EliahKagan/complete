@@ -12,4 +12,5 @@ dependencies:
   # Development dependencies.
   - flake8
   - mypy
+  - pylint
   - pyright

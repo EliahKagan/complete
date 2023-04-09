@@ -1,0 +1,40 @@
+name: Lint Python code
+
+on: [push, pull_request]
+
+jobs:
+  flake8:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: flake8 Lint
+        uses: py-actions/flake8@v2
+
+  pylint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install pipenv
+        run: pip install pipenv
+
+      - name: Install dependencies
+        run: pipenv install -d
+
+      - name: Run pylint
+        run: |
+          shopt -s globstar
+          pipenv run pylint -- **/*.py
