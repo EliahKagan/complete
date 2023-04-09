@@ -1,0 +1,45 @@
+name: Typecheck Python code
+
+on: [push, pull_request]
+
+jobs:
+  mypy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v3
+
+      - name: Install pipenv
+        run: pip install pipenv
+
+      - name: Generate requirements.txt
+        run: pipenv requirements --dev >requirements.txt
+
+      - name: mypy Typecheck
+        uses: jpetrucciani/mypy-check@master
+        with:
+          python_version: "3.11"
+          requirements_file: "requirements.txt"
+
+  pyright:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install pipenv
+        run: pip install pipenv
+
+      - name: Generate requirements.txt
+        run: pipenv requirements --dev >requirements.txt
+
+      - name: Install library dependencies
+        run: pip install -r requirements.txt
+
+      - name: pyright Typecheck
+        uses: jakebailey/pyright-action@v1
